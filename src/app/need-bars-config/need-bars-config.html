@@ -1,0 +1,40 @@
+<div class="config-container">
+  <header class="header">
+    <h1>Configure Your Need Bars</h1>
+    <p>Adjust the sliders to reflect your current needs</p>
+  </header>
+
+  <div class="needs-grid">
+    <div class="need-item" *ngFor="let need of needs; let i = index">
+      <div class="need-header">
+        <label [for]="'need-' + i">{{ need.name }}</label>
+        <span class="value">{{ need.value }}%</span>
+      </div>
+      <div class="slider-container">
+        <input 
+          type="range" 
+          [id]="'need-' + i"
+          min="0" 
+          max="100" 
+          [value]="need.value"
+          (input)="onSliderChange(i, $event)"
+          class="slider"
+          [style.background-color]="need.color"
+        />
+        <div class="progress-bar">
+          <div 
+            class="progress-fill" 
+            [style.width.%]="need.value"
+            [style.background-color]="need.color">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button (click)="resetNeeds()" class="btn btn-secondary">Reset to Default</button>
+    <button (click)="viewDisplay()" class="btn btn-primary">View Display</button>
+    <button (click)="shareNeeds()" class="btn btn-success">Share via URL</button>
+  </div>
+</div>

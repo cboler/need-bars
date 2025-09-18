@@ -1,0 +1,47 @@
+<div class="display-container">
+  <header class="header">
+    <h1>Your Need Bars</h1>
+    <p>Current status of your needs</p>
+  </header>
+
+  <div class="sims-panel">
+    <div class="avatar-section">
+      <div class="avatar">🧑</div>
+      <h3>Your Sim</h3>
+    </div>
+    
+    <div class="needs-display">
+      <div class="need-bar" *ngFor="let need of needs">
+        <div class="need-label">
+          <span class="need-icon">{{ getNeedIcon(need.name) }}</span>
+          <span class="need-name">{{ need.name }}</span>
+        </div>
+        <div class="bar-container">
+          <div class="bar-background">
+            <div 
+              class="bar-fill" 
+              [style.width.%]="need.value"
+              [style.background-color]="need.color"
+              [class.critical]="need.value < 20"
+              [class.low]="need.value >= 20 && need.value < 50"
+              [class.good]="need.value >= 50 && need.value < 80"
+              [class.excellent]="need.value >= 80">
+            </div>
+          </div>
+          <span class="need-value">{{ need.value }}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button (click)="goToConfig()" class="btn btn-primary">Edit Configuration</button>
+    <button (click)="copyToClipboard()" class="btn btn-success">Copy Share URL</button>
+    <button (click)="generateShareUrl()" class="btn btn-secondary">Generate Shareable Link</button>
+  </div>
+
+  <div class="share-info" *ngIf="shareUrl">
+    <p><strong>Share URL:</strong></p>
+    <input type="text" [value]="shareUrl" readonly class="share-url-input" />
+  </div>
+</div>
