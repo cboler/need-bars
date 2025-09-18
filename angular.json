@@ -59,7 +59,11 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/need-bars/"
+              "baseHref": "/need-bars/",
+              "outputPath": "docs",
+              "optimization": true,
+              "extractLicenses": true,
+              "sourceMap": false
             },
             "development": {
               "optimization": false,
