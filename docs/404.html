@@ -6,7 +6,7 @@
     <script>
         // Single Page App (SPA) redirect for GitHub Pages
         // This redirects all 404 routes to the Angular app in the browser folder
-        // The Angular router will then handle the client-side routing
+        // The Angular app uses hash-based routing (#/config, #/display, etc.)
         
         var pathSegmentsToKeep = 1; // For /need-bars/
         
@@ -19,7 +19,7 @@
             redirectPath = segments.slice(pathSegmentsToKeep + 1).join('/');
         }
         
-        // Build the redirect URL to the browser folder with the original route as a hash
+        // Build the redirect URL to the browser folder with hash routing
         var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
             segments.slice(0, pathSegmentsToKeep + 1).join('/') + '/browser/' +
             (redirectPath ? '#/' + redirectPath : '') +
