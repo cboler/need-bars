@@ -24,7 +24,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 To build the project for GitHub Pages, run:
 
 ```bash
-ng build
+npm run build:github-pages
 ```
 
-This will compile your project and store the build artifacts in the `docs/` directory for GitHub Pages deployment.
+This will compile your project and store the build artifacts in the `docs/` directory for GitHub Pages deployment, including the necessary redirect files.
