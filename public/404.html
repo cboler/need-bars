@@ -5,7 +5,7 @@
     <title>Need Bars - Share Your Needs</title>
     <script>
         // Single Page App (SPA) redirect for GitHub Pages
-        // This redirects all 404 routes to the Angular app in the browser folder
+        // This redirects all 404 routes to the Angular app
         // The Angular app uses hash-based routing (#/config, #/display, etc.)
         
         var pathSegmentsToKeep = 1; // For /need-bars/
@@ -19,20 +19,20 @@
             redirectPath = segments.slice(pathSegmentsToKeep + 1).join('/');
         }
         
-        // Build the redirect URL to the browser folder with hash routing
+        // Build the redirect URL with hash routing
         var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            segments.slice(0, pathSegmentsToKeep + 1).join('/') + '/browser/' +
+            segments.slice(0, pathSegmentsToKeep + 1).join('/') + '/' +
             (redirectPath ? '#/' + redirectPath : '') +
             (l.search || '');
         
         window.location.replace(redirectUrl);
     </script>
     <noscript>
-        <meta http-equiv="refresh" content="0; url=./browser/">
+        <meta http-equiv="refresh" content="0; url=./">
     </noscript>
 </head>
 <body>
     <p>Redirecting to the application...</p>
-    <p>If you are not automatically redirected, <a href="./browser/">click here</a>.</p>
+    <p>If you are not automatically redirected, <a href="./">click here</a>.</p>
 </body>
 </html>
